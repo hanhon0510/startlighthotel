@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { addRoom } from "../utils/ApiFunctions";
+import RoomTypeSelector from "../common/RoomTypeSelector";
+import { Button } from "react-bootstrap";
 
 const AddRoom = () => {
   const [newRoom, setNewRoom] = useState({
@@ -60,7 +62,6 @@ const AddRoom = () => {
       setErrorMessage(error.message);
     }
   };
-
   return (
     <>
       <section className="container mt-5 mb-5">
@@ -72,7 +73,12 @@ const AddRoom = () => {
                 <label htmlFor="roomType" className="form-label">
                   Room Type
                 </label>
-                <div></div>
+                <div>
+                  <RoomTypeSelector
+                    handleRoomInputChange={handleRoomInputChange}
+                    newRoom={newRoom}
+                  />
+                </div>
               </div>
 
               <div className="mb-3">
@@ -105,8 +111,14 @@ const AddRoom = () => {
                     src={imagePreview}
                     alt="Preview Room Photo"
                     style={{ maxWidth: "400px", maxHeight: "400px" }}
+                    className="mb-3"
                   />
                 )}
+              </div>
+              <div className="d-grid d-md-flex mt-2">
+                <button className="btn btn-outline-primary ml-5">
+                  Save Room
+                </button>
               </div>
             </form>
           </div>

@@ -6,7 +6,6 @@ body {
   opacity: 0.9;
 }
 
-/* Navigation bar definitions */
 .navbar {
   padding: 0;
 }
@@ -52,7 +51,6 @@ body {
   }
 }
 
-/* Hotel custom color */
 .btn-hotel {
   background-color: rgb(169, 77, 123);
   color: #fff;
@@ -174,7 +172,7 @@ h2 {
     transform: none;
   }
 }
-/* Header overlay */
+
 .overlay {
   position: absolute;
   top: 0;
@@ -192,7 +190,6 @@ h2 {
   justify-content: flex-start;
 }
 
-/* The header banner */
 .header-banner {
   background-image: url("./assets/images/services-1.jpg");
   background-size: cover;
