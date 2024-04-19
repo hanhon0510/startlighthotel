@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+
 import { getRoomTypes } from "../utils/ApiFunctions";
 
 const RoomTypeSelector = ({ handleRoomInputChange, newRoom }) => {
@@ -71,6 +73,15 @@ const RoomTypeSelector = ({ handleRoomInputChange, newRoom }) => {
       )}
     </>
   );
+};
+
+RoomTypeSelector.propTypes = {
+  handleRoomInputChange: PropTypes.func.isRequired,
+  newRoom: PropTypes.shape({
+    photo: PropTypes.string.isRequired,
+    roomType: PropTypes.string.isRequired,
+    roomPrice: PropTypes.number.isRequired,
+  }),
 };
 
 export default RoomTypeSelector;
