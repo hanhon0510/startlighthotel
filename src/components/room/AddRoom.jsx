@@ -12,6 +12,7 @@ const AddRoom = () => {
   const [imagePreview, setImagePreview] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
   const handleRoomInputChange = (e) => {
     const name = e.target.name;
     let value = e.target.value;
