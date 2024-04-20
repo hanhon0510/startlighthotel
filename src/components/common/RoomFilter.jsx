@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 
 const RoomFilter = ({ data, setFilteredData }) => {
   const [filter, setFilter] = useState("");
@@ -40,6 +41,20 @@ const RoomFilter = ({ data, setFilteredData }) => {
       </button>
     </div>
   );
+};
+
+RoomFilter.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      booked: PropTypes.bool,
+      bookings: PropTypes.array,
+      photo: PropTypes.string,
+      roomType: PropTypes.string,
+      roomPrice: PropTypes.number,
+    })
+  ).isRequired,
+  setFilteredData: PropTypes.func.isRequired,
 };
 
 export default RoomFilter;

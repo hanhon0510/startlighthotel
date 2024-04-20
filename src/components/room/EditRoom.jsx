@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+import { useEffect, useState } from "react";
 import { getRoomById, updateRoom } from "../utils/ApiFunctions";
 import { Link, useParams } from "react-router-dom";
 
@@ -33,20 +32,6 @@ const EditRoom = () => {
     });
   };
 
-  useEffect(() => {
-    const fetchRoom = async () => {
-      try {
-        const roomData = await getRoomById(roomId);
-        setRoom(roomData);
-        setImagePreview(roomData.photo);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchRoom();
-  }, [roomId]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -66,6 +51,20 @@ const EditRoom = () => {
       setErrorMessage(error.message);
     }
   };
+
+  useEffect(() => {
+    const fetchRoom = async () => {
+      try {
+        const roomData = await getRoomById(roomId);
+        setRoom(roomData);
+        setImagePreview(roomData.photo);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchRoom();
+  }, [roomId]);
 
   return (
     <div className="container mt-5 mb-5">
