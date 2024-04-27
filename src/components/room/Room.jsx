@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { deleteRoom, getAllRooms } from "../utils/ApiFunctions";
+import { useEffect, useState } from "react";
+import { getAllRooms } from "../utils/ApiFunctions";
 import RoomCard from "./RoomCard";
 import { Col, Container, Row } from "react-bootstrap";
 import RoomFilter from "../common/RoomFilter";
@@ -8,10 +8,10 @@ import RoomPaginator from "../common/RoomPaginator";
 const Room = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [roomPerPage, setRoomPerPage] = useState(6);
   const [filterData, setFilterData] = useState([{ id: "" }]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [roomPerPage, setRoomPerPage] = useState(6);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     setIsLoading(true);
